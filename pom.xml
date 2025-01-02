@@ -1,4 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<!-- <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.example.myapp</groupId>
@@ -18,4 +18,76 @@
   <build>
     <finalName>my-webapp</finalName>
   </build>
+</project> -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- Group and Artifact IDs -->
+  <groupId>com.example.myapp</groupId>
+  <artifactId>my-webapp</artifactId>
+
+  <!-- Packaging type (WAR for web deployment) -->
+  <packaging>war</packaging>
+
+  <!-- Version of the app -->
+  <version>1.0-SNAPSHOT</version>
+
+  <!-- Application Name -->
+  <name>my-webapp Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+
+  <!-- Properties for Java version -->
+  <properties>
+    <java.version>17</java.version>  <!-- You can set this to your desired version -->
+  </properties>
+
+  <!-- Dependencies -->
+  <dependencies>
+    <!-- Spring Boot Starter Web (for building web applications) -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <!-- Tomcat as the embedded container for WAR (use Tomcat for deploying to servlet containers) -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-tomcat</artifactId>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- JUnit 5 for testing -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>5.8.2</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>5.8.2</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <!-- Build Configuration -->
+  <build>
+    <finalName>my-webapp</finalName>
+
+    <!-- Spring Boot Maven Plugin for WAR -->
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <classifier>exec</classifier>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
 </project>
