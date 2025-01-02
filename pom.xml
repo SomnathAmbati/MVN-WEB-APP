@@ -39,9 +39,10 @@
   <name>my-webapp Maven Webapp</name>
   <url>http://maven.apache.org</url>
 
-  <!-- Properties for Java version -->
+  <!-- Properties for Java version and Spring Boot version -->
   <properties>
-    <java.version>17</java.version>  <!-- You can set this to your desired version -->
+    <java.version>17</java.version> <!-- Specify your Java version here -->
+    <spring-boot.version>2.6.5</spring-boot.version> <!-- Specify Spring Boot version -->
   </properties>
 
   <!-- Dependencies -->
@@ -50,6 +51,7 @@
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
+      <version>${spring-boot.version}</version> <!-- Use the Spring Boot version property -->
     </dependency>
 
     <!-- Tomcat as the embedded container for WAR (use Tomcat for deploying to servlet containers) -->
@@ -57,6 +59,7 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-tomcat</artifactId>
       <scope>provided</scope>
+      <version>${spring-boot.version}</version> <!-- Use the Spring Boot version property -->
     </dependency>
 
     <!-- JUnit 5 for testing -->
@@ -83,9 +86,7 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
-        <configuration>
-          <classifier>exec</classifier>
-        </configuration>
+        <version>${spring-boot.version}</version> <!-- Ensure version is consistent with other Spring Boot dependencies -->
       </plugin>
     </plugins>
   </build>
